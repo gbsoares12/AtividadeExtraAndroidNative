@@ -3,8 +3,6 @@ package com.example.atividade02entrega;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
 import android.content.pm.PackageManager;
@@ -18,13 +16,11 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class MapsFragment extends SupportMapFragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener{
@@ -54,7 +50,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         ponto1.setLongitude(-49.2359);
         ponto1.setVisitado(true);
 
-        registrarPonto(ponto1);
+        //registrarPonto(ponto1);
         //listaPontoLocalidade.add(ponto1);
 
     }
@@ -87,35 +83,20 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                     .title(ponto.getTitulo()));
         }
 
-
-//        // Add a marker in Sydney and move the camera
-//        LatLng indaial = new LatLng(-26.8997, -49.2359);
-//        mMap.addMarker(new MarkerOptions()
-//                .position(indaial)
-//                .draggable(true)
-//                .snippet("População: 66000")
-//                .title("Cidade de Indaial"));
-//
-//
-//        LatLng ibirama = new LatLng(-27.0591, -49.5312);
-//        mMap.addMarker(new MarkerOptions()
-//                .position(ibirama)
-//                .draggable(true)
-//                .snippet("População: 18000")
-//                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
-//                .title("Cidade de Ibirama"));
-
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setMapToolbarEnabled(true);
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(indaial));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(-27.0591, -49.5312)));
         mMap.setOnMarkerClickListener(this);
         mMap.setOnMapClickListener(this);
     }
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+
+        String textMsgToast = "Titulo: " + marker.getTitle() +"\n" + marker.getSnippet();
+
         Log.d("teste", "@@@@@@@@@@@@@@@@@@@@@@ TESTEEEEEE @@@@@@@@@@@@@@@@@@@@@@");
-        Toast.makeText(this.getContext(), marker.getTitle(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this.getContext(), textMsgToast, Toast.LENGTH_LONG).show();
         return false;
     }
 

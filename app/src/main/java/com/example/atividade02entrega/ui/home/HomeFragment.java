@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.atividade02entrega.MapsFragment;
 import com.example.atividade02entrega.R;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -27,16 +28,31 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        FragmentManager fm = this.getFragmentManager();
         if (view != null) {
             ViewGroup parent = (ViewGroup) view.getParent();
             if (parent != null)
                 parent.removeView(view);
         }
         try {
+            // Substitui um Fragment
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.mapFragment, new MapsFragment());
+            ft.commit();
             view = inflater.inflate(R.layout.fragment_home, container, false);
+
+//            Button button4 = (Button) view.findViewById(R.id.);
+//            button4.setOnClickListener(new View.OnClickListener() {
+//                public void onClick(View v) {
+//                    FragmentTransaction fra = getFragmentManager().beginTransaction();
+//                    fra.replace(R.id.fragment_container, new Fragment3());
+//                    fra.commit();
+//                }
+//            });
+
         } catch (InflateException e) {
-            /* map is already there, just return view as it is */
         }
         return view;
     }
 }
+
