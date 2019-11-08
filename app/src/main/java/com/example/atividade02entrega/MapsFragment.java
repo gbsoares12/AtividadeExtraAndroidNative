@@ -50,8 +50,8 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         ponto1.setLongitude(-49.2359);
         ponto1.setVisitado(true);
 
-        //registrarPonto(ponto1);
-        //listaPontoLocalidade.add(ponto1);
+        registrarPonto(ponto1);
+        listaPontoLocalidade.add(ponto1);
 
     }
 
@@ -67,7 +67,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        populaArrayTeste();
+        //populaArrayTeste();
         this.listaPontoLocalidade = carregarPontosLocalidades();
 
         getLocationPermission();
@@ -174,4 +174,5 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         listaPontoLocalidade.add(ponto);
 
     }
+
 }

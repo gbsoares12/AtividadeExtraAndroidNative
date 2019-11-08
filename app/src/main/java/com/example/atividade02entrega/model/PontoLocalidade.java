@@ -6,12 +6,17 @@ import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
+
 
 @Entity
-public class PontoLocalidade {
+public class PontoLocalidade implements Serializable {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NotNull
+    private int id;
+
+    @ColumnInfo(name = "titulo")
     private String titulo;
 
     @ColumnInfo(name = "descricao")
@@ -25,6 +30,14 @@ public class PontoLocalidade {
 
     @ColumnInfo(name = "longitude")
     private Double longitude;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Double getLatitude() {
         return latitude;
@@ -69,11 +82,12 @@ public class PontoLocalidade {
     @Override
     public String toString() {
         return "PontoLocalidade{" +
-                "titulo='" + titulo + '\'' +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", visitado=" + visitado +
-                ", latitude='" + latitude + '\'' +
-                ", longitude='" + longitude + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
                 '}';
     }
 }

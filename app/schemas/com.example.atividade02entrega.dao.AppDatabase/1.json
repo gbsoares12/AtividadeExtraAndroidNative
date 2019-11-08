@@ -2,17 +2,23 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c222a467b0bc0a5d078b8e9b7cc450b4",
+    "identityHash": "b2656dff3e39edcf654bab80d597af22",
     "entities": [
       {
         "tableName": "PontoLocalidade",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`titulo` TEXT NOT NULL, `descricao` TEXT, `visitado` INTEGER, `latitude` REAL, `longitude` REAL, PRIMARY KEY(`titulo`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `titulo` TEXT, `descricao` TEXT, `visitado` INTEGER, `latitude` REAL, `longitude` REAL)",
         "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
           {
             "fieldPath": "titulo",
             "columnName": "titulo",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "descricao",
@@ -41,9 +47,9 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "titulo"
+            "id"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
         "indices": [],
         "foreignKeys": []
@@ -52,7 +58,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c222a467b0bc0a5d078b8e9b7cc450b4')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b2656dff3e39edcf654bab80d597af22')"
     ]
   }
 }
