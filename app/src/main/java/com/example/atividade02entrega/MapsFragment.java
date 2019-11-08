@@ -8,6 +8,8 @@ import androidx.room.Room;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.atividade02entrega.dao.AppDatabase;
@@ -26,18 +28,24 @@ import java.util.List;
 public class MapsFragment extends SupportMapFragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener{
 
     private GoogleMap mMap;
+    private Button salvar;
+    private EditText titulo;
+    private EditText descricao;
 
     List<PontoLocalidade> listaPontoLocalidade = new ArrayList();
 
     private final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION =1;
 
     private boolean permissionGranted;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
+//        this.salvar = this.getView().findViewById(R.id.button_salvar);
+//        this.titulo = this.getView().findViewById(R.id.editText_titulo);
+//        this.descricao = this.getView().findViewById(R.id.editText_descricao);
         getMapAsync(this);
+
     }
 
 
@@ -159,6 +167,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                 .draggable(true)
                 .snippet("Teste")
                 .title("Cidade de Testadores"));
+
     }
 
     public List<PontoLocalidade> carregarPontosLocalidades(){

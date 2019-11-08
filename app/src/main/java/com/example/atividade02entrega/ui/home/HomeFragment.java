@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -19,16 +21,21 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.atividade02entrega.MapsFragment;
 import com.example.atividade02entrega.R;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 
 public class HomeFragment extends Fragment {
 
     private static View view;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         FragmentManager fm = this.getFragmentManager();
+
         if (view != null) {
             ViewGroup parent = (ViewGroup) view.getParent();
             if (parent != null)
@@ -54,5 +61,6 @@ public class HomeFragment extends Fragment {
         }
         return view;
     }
+
 }
 

@@ -3,6 +3,8 @@ package com.example.atividade02entrega;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.atividade02entrega.ui.home.HomeFragment;
 import com.example.atividade02entrega.ui.notifications.NotificationsFragment;
@@ -17,6 +19,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+    private Button salvar;
+    private EditText titulo;
+    private EditText descricao;
     private FragmentManager fragmentManager;
 
     @Override
